@@ -1,0 +1,94 @@
+title: 'The Costume Games'
+permalink: none
+url: 'https://thecostumegames.com/new'
+timezone: Europe/London
+analytics:
+    provider: google_analytics
+    tracking_id: UA-36947515-1
+sharing:
+    provider:
+        - facebook
+        - twitter
+        - google
+        - linkedin
+        - pinterest
+        - stumbleupon
+    limit: '3'
+profiles:
+    provider:
+        - facebook
+        - twitter
+        - pinterest
+    facebook: 'https://facebook.com/brightonjapanfestival'
+    twitter: 'https://twitter.com/brightonjapan15'
+    pinterest: 'https://pinterest.com/brightonjapan'
+defaults:
+    -
+        scope:
+            path: ''
+            type: posts
+        values:
+            layout: page
+    -
+        scope:
+            path: ''
+            type: pages
+        values:
+            layout: page
+    -
+        scope:
+            path: ''
+            type: events
+        values:
+            layout: event
+    -
+        scope:
+            path: ''
+            type: gallery
+        values:
+            layout: gallery
+collections:
+    events:
+        output: true
+    slides:
+        output: false
+    gallery:
+        output: true
+    sponsors:
+        output: false
+    contacts:
+        output: true
+description: 'The Costume Games'
+relative_permalinks: 'false'
+recaptcha_public_key: 6Lf55v0SAAAAAMh0yq9KLInjidvwlAJRP-MYBVND
+comments:
+    provider: '1'
+    num_posts: 0
+    width: 0
+baseurl: /
+cdn: //cdn.abemedia.co.uk/0x0/costumegames/new/
+advanced:
+    xs_w: 263
+    xs_h: 0
+    sm_w: 432
+    sm_h: 0
+    md_w: 800
+    md_h: 0
+    lg_w: 1280
+    lg_h: 0
+    xl_w: 1920
+    xl_h: 0
+gems:
+    - autoprefixer-rails
+    - jekyll-assets
+    - jekyll-sitemap
+assets:
+    sources:
+        - _assets/images
+        - _assets/javascripts
+        - _assets/stylesheets
+        - images
+    cache: true
+    js_compressor: uglifier
+    css_compressor: yui
+ticket_sales: 0

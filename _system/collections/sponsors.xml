@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="options">
+            <field name="website" type="url" label="Website" filter="url" class="form-control" admintable="true"/>
+            <field name="image" type="media" label="Logo" filter="string" class="form-control" />
+        </fieldset>
+    </fields>
+</form>

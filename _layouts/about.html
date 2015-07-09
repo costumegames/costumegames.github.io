@@ -1,0 +1,48 @@
+---
+layout: default
+---
+{% include modules/banner.html %}
+<div class="section" id="content">
+  <div class="container">
+    <article class="section-content">{% include template/content.html %}</article>
+  </div>
+</div>
+
+<div class="section bg-dark text-center">
+  <div class="container">
+    <h2 class="section-header">Partners</h2>
+    <div class="section-lead">{{page.partners_intro}}</div>
+    <ul class="gallery gallery-sm">
+      {% for partners in page.partners %}
+      {% assign item = partners[1] %}
+      <li class="filter-item item">
+        <a target="_blank" href="{{ item.url }}" class="panel-body">
+          <div class="rel img-contain embed-responsive embed-responsive-16by9" style="background-image:url({{ item.logo | prepend: (site.cdn | replace: '0x0', '300x0') }}); margin-bottom:10px">
+          </div>
+          <h5 class="item-title" title="{{ item.name }}" data-toggle="tooltip">
+            <span class="name" style="height: 100%; white-space: normal">{{ item.name }}</span>
+          </h5>
+        </a>
+      {% endfor %}
+    </ul>
+    <div class="section-content">{{page.partners_outro}}</div>
+    
+  </div>
+</div>
+
+<div class="section well text-center">
+  <div class="container">
+    <h2 class="section-header">Thanks</h2>
+    <div class="section-lead">{{page.thanks_intro}}</div>
+    <div class="section-content row">
+      {% for thanks in page.thanks %}
+      {% assign item = thanks[1] %}
+      <div class="col-sm-3">
+        <h5 class="media-heading">{{ item.name }}</h5>
+        <cite>{{ item.position }}</cite><br>
+        {{ item.company }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

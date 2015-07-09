@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="name">
+            <field name="slug" type="text" label="Slug" class="form-control" placeholder="JFIELD_ALIAS_PLACEHOLDER" filter="cmd" readonly="true" />
+        </fieldset>
+        <fieldset name="advanced">
+            <field name="sort_slides" type="list" label="Sort slides by" description="">
+                <option value="order">Order</option>
+                <option value="start_date">Date</option>
+                <option value="title">Title</option>
+            </field>
+            <field name="sort_events" type="list" label="Sort events by" description="">
+                <option value="order">Order</option>
+                <option value="start_date">Date</option>
+                <option value="title">Title</option>
+            </field>
+        </fieldset>
+        <fieldset name="general">
+            <field name="countdown" type="datetime" label="Countdown date" filter="date" class="form-control" />
+            <field name="festival_date" type="text" label="Festival date" filter="string" class="form-control" />
+        </fieldset>
+    </fields>
+</form>

@@ -1,0 +1,65 @@
+.btn-pulse {
+    .btn-primary();
+    .cssanimations & {
+        -webkit-animation: pulsebtn 20s infinite;
+        box-shadow: none;
+        background-color: transparent;
+        border-color: transparent;
+    }
+}
+
+.bg-pulse() {
+    background-color: @brand-primary;
+    border-color: darken(@brand-primary, 10%);
+    .cssanimations & {
+        -webkit-animation: pulsebg 20s infinite;
+        background-color: transparent;
+        border-color: transparent;
+    }
+}
+
+.text-pulse {
+    .pulse-text-frame(@brand-primary);
+    .cssanimations & {
+        -webkit-animation: pulsetext 20s infinite;
+    }
+}
+
+@-webkit-keyframes pulsebg {
+      0% {.pulse-bg-frame(@brand-info);}
+     20% {.pulse-bg-frame(@brand-primary);}
+     40% {.pulse-bg-frame(@brand-success);}
+     60% {.pulse-bg-frame(@brand-warning);}
+     80% {.pulse-bg-frame(@brand-danger);}
+    100% {.pulse-bg-frame(@brand-info);}
+}
+.pulse-bg-frame(@background) {
+    background-color: @background;
+    border-color: darken(@background, 10%);
+}
+
+@-webkit-keyframes pulsebtn {
+      0% {.pulse-btn-frame(@brand-info);}
+     20% {.pulse-btn-frame(@brand-primary);}
+     40% {.pulse-btn-frame(@brand-success);}
+     60% {.pulse-btn-frame(@brand-warning);}
+     80% {.pulse-btn-frame(@brand-danger);}
+    100% {.pulse-btn-frame(@brand-info);}
+}
+.pulse-btn-frame(@background) {
+    .button-variant(#fff; @background; darken(@background, 10%););
+}
+
+
+@-webkit-keyframes pulsetext {
+      0% {.pulse-text-frame(@brand-info);}
+     20% {.pulse-text-frame(@brand-primary);}
+     40% {.pulse-text-frame(@brand-success);}
+     60% {.pulse-text-frame(@brand-warning);}
+     80% {.pulse-text-frame(@brand-danger);}
+    100% {.pulse-text-frame(@brand-info);}
+}
+.pulse-text-frame(@color) {
+    color: @color;  
+    .text-shadow-3d(darken(@color, 15%), 1px, 1px, 6);
+}

@@ -1,0 +1,11 @@
+module Jekyll
+    module ImageResize
+        def img_resize(input, width, height) 
+            require 'fastimage_resize'
+            FastImage.resize(input, width, height, :outfile=>"./cache/#{input}")
+        end
+    end
+    
+end
+
+Liquid::Template.register_filter(Jekyll::ImageResize)

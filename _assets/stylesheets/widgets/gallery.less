@@ -1,0 +1,101 @@
+.photo {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+ul.gallery {
+    .list-unstyled;
+    .item-img {
+        .img-contain();
+        .embed-responsive();
+        .embed-responsive-16by9();
+        margin: 10px;
+    }
+    .item-title, .item-title::before, .item-title::after {
+        .transition(0.4s ease-in-out all);
+    }
+    .item-title {
+        text-align: left;
+    	background:@gray;
+    	color:#fff;
+    	padding:0.5em 0.75em;
+    	position: absolute;
+    	bottom: 25px;
+    	left: -0.5em;
+    	height: 3.3em;
+    	margin: 0 0 0 -1px;
+    	max-width: 90%;
+        &>*{
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    .item-title::before {
+    	position: absolute;
+    	left: 100%;
+    	bottom: 0;
+    	border-left: 2em solid @gray;
+    	border-top: 3.3em solid transparent;
+    	display: table;
+    	content: " ";
+    }
+    .item-title::after {
+    	position: absolute;
+    	left: 0;
+    	top: 100%;
+    	border-right: 0.5em solid @gray-dark;
+    	border-bottom: 0.75em solid transparent;
+    	display: table;
+    	content: " ";
+    }
+    a:hover {
+        .item-title {
+        	background: @brand-primary;
+        }
+        .item-title::before {
+        	border-left: 2em solid @brand-primary;
+        }
+        .item-title::after {
+        	border-right: 0.5em solid darken(@brand-primary, 15%);
+        }
+    }
+    li {
+        width: 100%;
+        display: inline-block;
+    }
+    @media screen and (min-width: 480px) {
+        li {
+            width: 50%;
+            &.w2 {
+                width: 100%;
+            }
+        }  
+    }
+    @media screen and (min-width: 768px) {
+        li {
+            width: 50%;
+            &.w2 {
+                width: 100%;
+            }
+        }  
+    }
+    @media screen and (min-width: 992px) {
+        li {
+            width: 25%;
+            &.w2 {
+                width: 50%;
+            }
+        }  
+    }
+    &.gallery-sm li {
+        width: 50%;
+    }
+    @media screen and (min-width: 768px) {
+        &.gallery-sm li {
+            width: 20%;
+        }  
+    }
+}

@@ -1,0 +1,32 @@
+.bg-dark, .bg-primary, .bg-info, .bg-warning, .bg-success, .bg-danger {
+    color: #fff;
+    h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+        color: rgba(255,255,255,0.8);
+    }
+}
+.bg-dark, .text-bg-dark > span {
+    background-color: @gray-darker;
+}
+.bg-primary, .text-bg-primary > span {
+    background-color: @brand-primary;
+}
+.bg-info, .text-bg-info > span {
+    background-color: @brand-info;
+}
+.bg-warning, .text-bg-warning > span {
+    background-color: @brand-warning;
+}
+.bg-success, .text-bg-success > span {
+    background-color: @brand-success;
+}
+.bg-danger, .text-bg-danger > span {
+    background-color: @brand-danger;
+}
+
+.text-bg-dark, .text-bg-primary, .text-bg-info, .text-bg-warning, .text-bg-success, .text-bg-danger {
+    &> span {
+        padding: 5px 10px;
+        margin: 0px;
+        line-height: 1.3;
+    }
+}

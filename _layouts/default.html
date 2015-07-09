@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      {% capture description %}{% if page.description %}{{ page.description }}{% elsif page.lead %}{{ page.lead | strip_html }}{% elsif page.excerpt %}{{ page.excerpt | strip_html }}{% else %}{{ site.description }}{% endif %}{% endcapture %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ description }}" />
+    <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% elsif page.tags %}{{ page.tags | join: ', ' }}{% else %}{{ site.keywords }}{% endif %}" />
+    <meta name="author" content="{{ site.author }}" />
+    <link rel="icon" href="{{ site.url }}/favicon.ico" />
+    <link rel="canonical" href="{{ page.url | remove: 'index.html' | prepend: site.url }}"/>
+    <title>{{ page.title }} | {{ site.title }}</title>
+    {% stylesheet app %}
+    <!--[if lt IE 9]>
+      <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="{{ site.url }}/{{ page.image }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:locale" content="{{ site.locale }}"/>
+    <meta property="og:url" content="{{ page.url | remove: 'index.html' | prepend: site.url }}" />
+    {% if site.facebook_app %}<meta property="fb:app_id" content="{{ site.facebook_app }}" />{% endif %}
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@{{ site.profiles.twitter | replace: '@', '' | split: '/' | last }}"/>
+    <meta name="twitter:domain" content="{{ site.url }}"/>
+    <meta name="twitter:creator" content="@abemedia"/>
+  </head>
+  <body> 
+  <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+  <header{% if page.slug == 'index' %} class="header-home"{% endif %}>
+    <button type="button" class="navbar-toggle btn-lg">
+      <span class="icon-menu"></span> MENU
+    </button>
+  </header>
+  
+  {% unless page.slug == 'index' %}<a class="logo" data-stellar-ratio=".65" href="{{ site.url }}" id="logo">
+    <img src="{{ 'logo.png' | asset_path }}" alt="{{site.title}}">
+  </a>{% endunless %}
+  
+  <ul class="nav offcanvas-nav" role="navigation">
+  {% assign pages = (site.pages | where: 'published', 1 | where: 'parent', nil | sort: 'order') %}
+  {% for item in pages %}
+    {% assign submenu = (site.pages | where: 'published', 1 | where: 'parent', item.slug | sort: 'order') %}
+    <li {% if item.slug == page.slug or page.collection == item.slug or page.app == item.slug or page.parent == item.slug %}class="active"{% endif %}>
+      <a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">
+        {% if item.slug == 'index' %}Home{% else %}{{ item.title }}{% endif %}
+      </a>
+      {% if (submenu | size) > 0 %}
+      <ul class="nav">
+        {% for item in submenu %}
+        <li {% if item.slug == page.slug or page.collection == item.slug or page.app == item.slug or page.parent == item.slug %}class="active"{% endif %}>
+          <a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  
+  <div id="content">
+  {{content}}
+  
+  <footer class="footer">
+    <div class="container">
+    
+      <div class="row">
+        <div class="col-sm-9">
+    
+          <div class="row">
+          
+            <div class="col-sm-4">
+              <h4>Quick Links</h4>
+              <ul class="nav">
+                <li><a href="{{ 'events.html' | prepend: site.url }}">Tickets</a></li>
+                <li><a href="{{ 'events.html' | prepend: site.url }}">Events</a></li>
+                <li><a href="{{ 'contact.html' | prepend: site.url }}">Contact Us</a></li>
+              </ul>
+            </div>
+            
+            <div class="col-sm-4">
+              <h4>Information</h4>
+              <ul class="nav">
+                <li><a href="{{ 'info.html' | prepend: site.url }}">Info</a>
+                {% assign infomenu = (site.pages | where: 'published', 1 | where: 'parent', 'info' | sort: 'order') %}
+                {% for item in infomenu %}
+                <li><a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">{{ item.title }}</a>
+                {% endfor %}
+              </ul>
+            </div>
+            
+            <div class="col-sm-4">
+              <h4>Connect</h4>
+              <ul class="list-unstyled">
+                {% for provider in site.profiles.provider %}
+                <li><a class="btn btn-sm btn-{{ provider }}" href="{{ site.profiles[provider] }}" target="_blank"><i class="fa fa-fw fa-{{ provider }}"></i> {{ provider | capitalize }}</a>
+                {% endfor %}
+              </ul>
+            </div>
+            
+            
+            <div class="col-sm-12 small">
+              <hr>
+              <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} | <a href="{{ site.url }}/privacy-policy.html">Privacy Policy</a> | <a href="{{ site.url }}/terms-and-conditions.html">Terms & Conditions</a></p>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="col-sm-3">
+          <img style="max-width: 85%;" class="img-responsive pull-right" src="{{ 'logo.png' | asset_path }}" alt="{{site.title}}">
+        </div>
+      </div>
+    
+  </footer>
+  </div>
+  {% javascript app %}
+  {% include system/analytics %}
+</body>
+</html>

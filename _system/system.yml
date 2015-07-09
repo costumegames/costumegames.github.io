@@ -1,0 +1,18 @@
+pages:
+    title: Pages
+    icon: sitemap
+events:
+    title: Events
+    icon: calendar
+gallery:
+    title: Gallery
+    icon: camera
+sponsors:
+    title: Sponsors
+    icon: money
+slides:
+    title: Slides
+    icon: info
+contacts:
+    title: Contacts
+    icon: users

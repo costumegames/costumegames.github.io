@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="options">
+            <field name="map" type="media" label="Map" filter="string" class="form-control" />
+        </fieldset>
+    </fields>
+</form>

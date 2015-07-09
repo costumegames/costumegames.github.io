@@ -1,0 +1,35 @@
+
+.img-bg {
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: none !important;
+    backface-visibility: visible !important;
+}
+.img-cover {
+    .img-bg;
+    background-size: cover;
+}
+.img-contain {
+    .img-bg;
+    background-size: contain;
+}
+.img-4x3 {
+    .img-cover;
+    .embed-responsive();
+    .embed-responsive-4by3();
+}
+.img-3x4 {
+    .img-cover;
+    .embed-responsive();
+    padding-bottom: 133.33333333333333333333333333333%;
+}
+.img-16x9 {
+    .img-cover;
+    .embed-responsive();
+    .embed-responsive-16by9();
+}
+.img-logo {
+    .img-contain;
+    .embed-responsive();
+    .embed-responsive-4by3();
+}

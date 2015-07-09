@@ -1,0 +1,117 @@
+@icon-url: "//share.donreach.com/fonts";
+@text-color: #333;
+@btn-colors:
+  facebook #3b5998,
+  twitter #00acee,
+  google #d34836,
+  linkedin #0976b4,
+  pinterest #cc2127,
+  stumbleupon #eb4924,
+  delicious #3399ff,
+  reddit #ff4500,
+  tumblr #35465c,
+  buffer #333333,
+  vk #45668e,
+  youtube #e52d27;
+
+.btn-template(@name, @color) {
+    &.btn-@{name}, .btn-@{name} [class^="don-ico-"], .btn-@{name} [class*=' don-ico-'] {
+        .button-variant(#fff; @color; darken(@color, 10%));
+    }
+}
+
+.btn-colors(length(@btn-colors));
+.btn-colors(@i) when (@i > 0) {
+    .btn-colors((@i - 1));
+    @value: extract(@btn-colors, @i);
+    @name:  e(extract(@value, 1));
+    @color: extract(@value, 2);
+    .btn-template(@name, @color);
+}
+
+@font-face {
+    font-family: 'donshare-icons';
+    src:url('@{icon-url}/donshare-icons.eot');
+    src:url('@{icon-url}/donshare-icons.eot?#iefix') format('embedded-opentype'),
+        url('@{icon-url}/donshare-icons.woff') format('woff'),
+        url('@{icon-url}/donshare-icons.ttf') format('truetype'),
+        url('@{icon-url}/donshare-icons.svg#donshare-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="ico-"], [class*=" ico-"] {
+    font-family: 'donshare-icons';
+}
+
+@icons:
+  facebook "e600",
+  twitter "e601",
+  google "e602",
+  linkedin "e603",
+  pinterest "e604",
+  stumbleupon "e605",
+  delicious "e606",
+  reddit "e607",
+  tumblr "e608",
+  buffer "e609",
+  vk "e60a";
+  
+.ico-template(@name, @code) {
+    &.ico-@{name} {
+    *zoom: "expression(this.runtimeStyle['zoom'] = '1', this.innerHTML = '&#x@{code};')";
+    &::before {
+        content: "\@{code}";
+    }
+    }
+}
+
+.icons(length(@icons));
+.icons(@i) when (@i > 0) {
+    .icons((@i - 1));
+    @value: extract(@icons, @i);
+    @name: extract(@value, 1);
+    @code: extract(@value, 2);
+    .ico-template(@name, @code);
+}
+
+.don-share {
+    &, & > div{
+        display: inline-block;
+    }
+    
+    a {
+        position: relative;
+    }
+    a .don-count {
+        height: 2em;
+        line-height: 2em; 
+    	border:1px solid #ccc;
+    	background:#fff;
+    	color: #333;
+    	font-size: 18px;
+    	position: absolute;
+    	left: 0;
+    	right: 0;
+    	bottom: 100%;
+    	margin-bottom:7px;
+    	display:none;
+    }
+    a:hover .don-count{display: block}
+    a .don-count:before, a .don-count:after {
+        left: 50%;
+        margin-left: -5px;
+    	border-width: 5px 5px 0 5px;
+    	border-style: solid;
+    	content: "";
+    	position: absolute;
+    	display: block;
+    }
+    a .don-count:before {
+    	bottom: -6px;
+    	border-color: #ccc transparent;
+    }
+    a .don-count:after {
+    	bottom: -5px;
+    	border-color: #fff transparent;
+    }
+}

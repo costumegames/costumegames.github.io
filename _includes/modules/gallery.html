@@ -1,0 +1,10 @@
+  <div class="row equal">
+    {% for item in include.params.items %}
+    <div class="col-sm-6 col-md-4"><a class="thumb" href="{{ site.url }}{{ item.url }}" >
+    <figure>
+      <div class="thumb-wide img" style="background-image: url({{ site.cdn | replace: '0x0', '432x243' }}{{ item.image }})"></div>
+    </figure>
+    {% if item.title %}<h3>{{ item.title }} {% if item.start_date %}<!--small>{{ item.start_date | date_to_string }}</small-->{% endif %}</h3>{% endif %}
+    {% if item.content %}<p>{{ item.content | strip_html | truncatewords:20 }}</p>{% endif %}
+    </a><br></div>{% endfor %}
+  </div>

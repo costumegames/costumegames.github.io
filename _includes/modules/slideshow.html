@@ -1,0 +1,36 @@
+  <div id="carousel" class="carousel slide fh" data-ride="carousel" pause="false">
+  
+    <div class="h1 fa-5x carousel-header">
+      <div class="container">{{ page.title }}</div>
+    </div>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner fh">
+      {% capture i %}0{% endcapture %}
+      {% for item in include.category %}
+      <div class="item img-cover img-fixed fh {% if {{i}} == '0' %}active{% endif %}" style="background-image:url({{ site.cdn | replace: '0x0', '1920x1080' }}{{ item.image }})">
+        <div class="carousel-caption">
+          <div class="container">
+            <span class="h1">{{ item.title }}</span>
+            <span class="h4">{{ item.date }}</span>
+            <a class="btn btn-primary btn-lg" href="{{ site.url }}{{ item.url }}">
+              {% if item.sell_posters %}Buy posters{% else %}View collection{% endif %}
+            </a> 
+          </div>
+        </div>
+      </div>
+      {% capture i %}{{ i | plus:1 }}{% endcapture %}
+      {% endfor %}
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+    <a class="arrow-down" href="#content">
+      <span class="glyphicon glyphicon-chevron-down"></span>
+    </a>
+  </div>

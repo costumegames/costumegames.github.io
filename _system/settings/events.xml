@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="site">
+			<field name="ticket_sales" type="list" default="0" label="Activate ticket sales" class="form-control" filter="int">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</field>
+        </fieldset>
+    </fields>
+</form>

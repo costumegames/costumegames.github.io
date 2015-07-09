@@ -1,0 +1,8 @@
+.box-shadow-3d(@color, @x, @y, @index) when (@index > 0) {
+    .box-shadow-3d(@color, @x, @y, @index - 1);
+    box-shadow+: @color @x*@index @y*@index 0;
+}
+.text-shadow-3d(@color, @x, @y, @index) when (@index > 0) {
+    .text-shadow-3d(@color, @x, @y, @index - 1);
+    text-shadow+: @color @x*@index @y*@index 0;
+}

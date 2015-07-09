@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="options">
+            <field name="name" type="text" label="Name" filter="string" class="form-control" admintable="true" />
+            <field name="email" type="email" label="Email" filter="string" class="form-control" admintable="true" />
+            <field name="phone" type="phone" label="Phone" filter="string" class="form-control" admintable="true" />
+            <field name="mobile" type="phone" label="Mobile" filter="string" class="form-control" admintable="true" />
+        </fieldset>
+    </fields>
+</form>

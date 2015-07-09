@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="options">
+            <field name="directory" type="folderlist" label="Media Directory" filter="string" class="form-control" directory="images" required="true" admintable="true"/>
+            <field name="image" type="media" label="Cover Image" filter="string" class="form-control" />
+        </fieldset>
+    </fields>
+</form>

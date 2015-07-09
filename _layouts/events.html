@@ -1,0 +1,45 @@
+---
+layout: default
+---
+{% include modules/banner.html %}
+
+<div class="section">
+  <div class="container lead">{{ content }}</div>
+</div> 
+{% assign dates = '2015-09-16,2015-09-17,2015-09-18,2015-09-19,2015-09-20' | split: ',' %}
+<div class="section bg-dark">
+  <div class="text-center bg-{% cycle 'primary', 'success', 'warning', 'danger' %}">
+    <h2 class="section-header text-uppercase">Event Guide</h2>
+  </div> 
+  {% assign events = (site.events | where: 'parent', nil | where: 'published', 1 | sort: 'start_date') %}
+  <div class="table-container">
+  <div class="table" style="border-spacing:15px; border-collapse: true;">
+  {% for date in dates %}
+  <div class="row row-compact row-table">
+    <div class="col-sm-3 bg-{% cycle 'primary', 'success', 'warning', 'danger' %}" style="padding: 0 30px; vertical-align: middle">
+      <h3 class="h1">{{ date | date: "%A"}}</h3>
+      <p>{{ date | date: "%d %B"}}</p>
+    </div>
+    <div class="col-sm-9">
+      <div class="owl-carousel">
+        {% for item in events %}
+        {% assign eventdate = item.start_date | date: "%Y-%m-%d"  %}
+        {% if date == eventdate %}
+          <a class="img-3x4" href="{{ site.url }}{{ item.url }}" {% if item.image %}style="background-image: url({{ item.image | remove_first: 'images/' | append: ' [resize:300x400^]' | asset_path }})"{% endif %}>
+            <div class="slide-caption">
+              <h4 class="h3">{{ item.title }}</h4> 
+              <i class="fa fa-clock-o"></i> 
+              {% if item.all_day %}All day{% else %}{{ item.start_date | date: "%H:%M"}}
+              {% if item.end_date %} - {{ item.end_date | date: "%H:%M"}}{% endif %}{% endif %}
+              {% if item.location %}&nbsp; <span class="text-nowrap"><i class="fa fa-map-marker"></i> {{ item.location }}</span>{% endif %}
+            </div>
+          </a>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  </div>
+  </div>
+</div>

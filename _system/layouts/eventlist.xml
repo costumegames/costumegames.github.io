@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields>
+        <fieldset name="advanced">
+            <field name="sort_events" type="list" label="Sort events by" description="">
+                <option value="order">Order</option>
+                <option value="start_date">Date</option>
+                <option value="title">Title</option>
+            </field>
+        </fieldset>
+    </fields>
+</form>
