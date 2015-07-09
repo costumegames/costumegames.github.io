@@ -87,7 +87,7 @@ assets:
         - _assets/images
         - _assets/javascripts
         - _assets/stylesheets
-        - _media
+        - images
     cache: true
     js_compressor: uglifier
     css_compressor: yui
