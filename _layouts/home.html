@@ -3,10 +3,10 @@ layout: default
 ---
   <div class="fh rel" style="overflow:hidden">
     <div id="photoMosaic" class="fade" data-stellar-ratio="1.3">
-        
+        {{site | jsonify}}
     {% assign files = (site.static_files | where: 'extname', '.jpg' | sort: 'modified_time') %}
-    {% for file in files reversed %}{% if file.path contains '/images/cosplay-carnival/' %}
-      {{ file.path | remove_first: '/images/' | append: ' [resize:150x150,autosize]' | image }}
+    {% for file in files reversed %}{% if file.path contains '/_assets/images/' %}
+      {{ file.path | remove_first: '/_assets/images/' | append: ' [resize:150x150,autosize]' | image }}
     {% endif %}{% endfor %}
     </div>
     <div class="cover-caption">
