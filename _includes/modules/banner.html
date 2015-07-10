@@ -1,4 +1,4 @@
-  <div class="banner rel" {% if page.image %}style="background-image:url({{ page.image | remove_first: '_media/' | append: ' [resize:1600x410]' | asset_path }});"{% endif %} data-stellar-background-ratio="0.5">
+  <div class="banner rel" {% if page.image != nil and page.image != '' %}style="background-image:url({{ page.image | remove_first: '_media/' | append: ' [resize:1600x410]' | asset_path }});"{% endif %} data-stellar-background-ratio="0.5">
     <div class="banner-text">
       <div class="container">
         <h1>{{ page.title }}</h1>

@@ -57,7 +57,7 @@ collections:
     sponsors:
         output: false
     contacts:
-        output: true
+        output: false
 description: 'The Costume Games'
 relative_permalinks: 'false'
 recaptcha_public_key: 6Lf55v0SAAAAAMh0yq9KLInjidvwlAJRP-MYBVND

@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign contacts = (site.contacts | where: 'published', 1 | sort: 'order') %}
 {% include modules/banner.html %}
-<div class="section grey" id="content">
+<div class="section grey">
   <div class="container">
     {% include template/content.html %}
     <div class="row">
@@ -75,14 +75,17 @@ layout: default
         </form>
         </div>
         <div class="col-sm-3">
-        <div class="box bg-pattern-1">
-          <h4 class="media-heading">Downloads</h4>
-          <hr>
+        <div class="panel panel-default">
+          <div class="panel-heading"><h4 class="panel-title">Downloads</h4></div>
+          <div class="panel-body">
           <ul class="list-unstyled">
             {% for download in page.downloads %}
-            <li><a class="h5" href="{{ download.dl_file }}" download>{{ download.dl_title }}</a></li>
+            {% if download[1] %}{% assign dl = download[1] %}
+            {% else %}{% assign dl = download %}{% endif %}
+            <li><a class="h5" href="{{ dl.dl_file }}" download>{{ dl.dl_title }}</a></li>
             {% endfor %}
           </ul>
+        </div>
         </div>
         </div>
       </div>
