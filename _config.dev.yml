@@ -1,12 +1,12 @@
-url: '/clients/thecostumegames.com/new/_site/'
-cdn: '/clients/thecostumegames.com/new/_site/'
+url: '/clients/thecostumegames.com/_site/'
+cdn: '/clients/thecostumegames.com/_site/'
 assets:
     sources:
         - _assets/images
         - _assets/javascripts
         - _assets/stylesheets
-        - images
-    baseurl: "/clients/thecostumegames.com/new/_site/assets"
+        - _media
+    baseurl: "/clients/thecostumegames.com/_site/assets"
     cache: false
     js_compressor: false
     css_compressor: false
