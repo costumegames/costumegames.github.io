@@ -25,7 +25,7 @@ layout: default
         {% for item in events %}
         {% assign eventdate = item.start_date | date: "%Y-%m-%d"  %}
         {% if date == eventdate %}
-          <a class="img-3x4" href="{{ site.url }}{{ item.url }}" {% if item.image %}style="background-image: url({{ item.image | remove_first: 'images/' | append: ' [resize:300x400^]' | asset_path }})"{% endif %}>
+          <a class="img-3x4" href="{{ site.url }}{{ item.url }}" {% if item.image %}style="background-image: url({{ item.image | remove_first: '_media/' | append: ' [resize:300x400^]' | asset_path }})"{% endif %}>
             <div class="slide-caption">
               <h4 class="h3">{{ item.title }}</h4> 
               <i class="fa fa-clock-o"></i> 
