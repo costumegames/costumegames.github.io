@@ -3,7 +3,7 @@ layout: default
 ---
   <div class="fh rel" style="overflow:hidden">
     <div id="photoMosaic" class="fade" data-stellar-ratio="1.3">
-      {% assign files = '_media/cosplay-carnival/' | files %}
+      {% assign files = page.mosaic_dir | files %}
       {% for file in files reversed %}
       {{ file | remove_first: '_media/' | append: ' [resize:150x150,autosize]' | image }}
       {% endfor %}
