@@ -84,6 +84,7 @@ gems:
     - jekyll-sitemap
 mediaurl: _media
 assets:
+    baseurl: "/new/assets"
     sources:
         - _assets/images
         - _assets/javascripts
