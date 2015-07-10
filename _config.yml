@@ -19,9 +19,9 @@ profiles:
         - facebook
         - twitter
         - pinterest
-    facebook: 'https://facebook.com/brightonjapanfestival'
-    twitter: 'https://twitter.com/brightonjapan15'
-    pinterest: 'https://pinterest.com/brightonjapan'
+    facebook: 'https://www.facebook.com/thecostumegames'
+    twitter: 'https://twitter.com/thecostumegames'
+    pinterest: 'https://pinterest.com/thecostumegames'
 defaults:
     -
         scope:
@@ -84,7 +84,7 @@ gems:
     - jekyll-sitemap
 mediaurl: _media
 assets:
-    baseurl: "/new/assets"
+    baseurl: /new/assets
     sources:
         - _assets/images
         - _assets/javascripts
