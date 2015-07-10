@@ -1,6 +1,7 @@
 
 function splitText() {
     var el = $(this);
+    el.attr('style', '');
     el.html('<span>' + el.text().split(" ").join(" </span><span>") + '</span>');
     el.children('span:empty').remove();
     var refPos = el.children('span:first-child').position().top;
@@ -17,6 +18,7 @@ function splitText() {
         } 
         refPos = newPos;
     });
+    el.attr('style', 'display: block; margin: 0 -10px;');
 }
 
 var resizeTimer;
