@@ -38,7 +38,7 @@
   </header>
   
   {% unless page.slug == 'index' %}<a class="logo" data-stellar-ratio=".65" href="{{ site.url }}" id="logo">
-    <img src="{{ 'logo.png' | asset_path }}" alt="{{site.title}}">
+    <img src="{{ 'logo.png' | append: ' [resize:140x140^,autosize]' | asset_path }}" alt="{{site.title}}">
   </a>{% endunless %}
   
   <ul class="nav offcanvas-nav" role="navigation">
@@ -76,16 +76,16 @@
             <div class="col-sm-4">
               <h4>Quick Links</h4>
               <ul class="nav">
-                <li><a href="{{ 'events.html' | prepend: site.url }}">Tickets</a></li>
-                <li><a href="{{ 'events.html' | prepend: site.url }}">Events</a></li>
-                <li><a href="{{ 'contact.html' | prepend: site.url }}">Contact Us</a></li>
+                <li><a href="{{ '/events.html' | prepend: site.url }}">Tickets</a></li>
+                <li><a href="{{ '/events.html' | prepend: site.url }}">Events</a></li>
+                <li><a href="{{ '/contact.html' | prepend: site.url }}">Contact Us</a></li>
               </ul>
             </div>
             
             <div class="col-sm-4">
               <h4>Information</h4>
               <ul class="nav">
-                <li><a href="{{ 'info.html' | prepend: site.url }}">Info</a>
+                <li><a href="{{ '/info.html' | prepend: site.url }}">Info</a>
                 {% assign infomenu = (site.pages | where: 'published', 1 | where: 'parent', 'info' | sort: 'order') %}
                 {% for item in infomenu %}
                 <li><a href="{{ item.url | remove: 'index.html' | prepend: site.url }}">{{ item.title }}</a>

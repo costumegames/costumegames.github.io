@@ -11,7 +11,7 @@ layout: default
     <div class="cover-caption">
       <a class="logo logo-home" href="{{ site.url }}" id="logo">
         <div class="logo-bg"></div>
-        <img src="{{ 'logo.png' | asset_path }}" alt="{{site.title}}">
+        <img src="{{ 'logo.png' | append: ' [resize:230x230^,autosize]' | asset_path }}" alt="{{site.title}}">
       </a>
       <div class="datebox pull-left" id="countdown" data-date="{{ page.countdown | date: "%Y-%m-%d"}}"></div>
       <a href="{{ site.url }}/tickets.html" class="btn btn-danger btn-lg pull-left">Buy Tickets</a>  
