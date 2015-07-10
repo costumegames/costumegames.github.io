@@ -24,13 +24,3 @@ $('a[href*=#]:not([href=#],.carousel-control,[data-toggle])').click( function() 
     }
 });
 
-toastr.options = {
-  "positionClass": "toast-bottom-left"
-}
-
-// packery
-var $gallery = $('.blox-container');
-$gallery.packery({
-  itemSelector: '.blox-item,.blox-item-w2',
-  gutter: 0,
-});
