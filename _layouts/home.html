@@ -82,7 +82,7 @@ layout: default
             <div class="blox-text">
               <h3 class="h2 media-heading">Read More</h3>
               <ul class="nav">
-                <li><a href="{{ 'info.html' | prepend: site.url }}"><i class="fa fa-chevron-right"></i> Info</a>
+                <li><a href="{{ '/info.html' | prepend: site.url }}"><i class="fa fa-chevron-right"></i> Info</a>
                 {% assign infomenu = (site.pages | where: 'published', 1 | where: 'parent', 'info' | sort: 'order') %}
                 {% for item in infomenu %}
                 <li><a href="{{ item.url | remove: 'index.html' | prepend: site.url }}"><i class="fa fa-chevron-right"></i> {{ item.title }}</a>
