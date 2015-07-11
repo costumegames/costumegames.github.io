@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
     <fields>
+        <fieldset name="general">
+            <field name="days" type="multiform" filter="array">
+                <field name="day_date" type="calendar" label="Date" filter="date" class="form-control" />
+                <field name="day_name" type="text" label="Name" filter="string" class="form-control" />
+                <field name="day_partner" type="itemlist" label="Partner" app="sponsors" class="form-control" />
+            </field>
+        </fieldset>
         <fieldset name="advanced">
             <field name="sort_events" type="list" label="Sort events by" description="">
                 <option value="order">Order</option>
