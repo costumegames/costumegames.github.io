@@ -2,12 +2,12 @@
 <form>
     <fields>
         <fieldset name="options">
-            <field name="image" type="media" label="Image" filter="string" class="form-control" />
             <field name="start_date" type="datetime" label="Start Date" filter="date" class="form-control" admintable="true" />
             <field name="end_date" type="datetime" label="End Date" filter="date" class="form-control" />
             <field name="all_day" type="checkbox" label="All Day Event" filter="string" />
             <field name="price" type="text" label="Price" filter="int" class="form-control" admintable="true" />
             <field name="sponsor" type="itemlist" label="Sponsor" app="sponsors" class="form-control" />
+            <field name="image" type="media" label="Image" filter="string" class="form-control" />
         </fieldset>
     </fields>
 </form>
