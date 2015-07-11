@@ -35,7 +35,7 @@ layout: default
           {{ content }}
           <hr><h4 class="media-heading text-center h5 text-uppercase">In partnership with</h4>
           {% assign sponsors = (site.sponsors | where: 'published', 1 | sort: 'order') %}  
-          {% capture partnerlist %}{% for partner in page.partners %}{{ partner[1] }}|||{% endfor %}{% endcapture %}
+          {% capture partnerlist %}{% for partner in page.partners %}{% if partner[1] %}{{ partner[1] }}{% else %}{{ partner }}{% endif %}|||{% endfor %}{% endcapture %}
           {% assign partners = partnerlist | split:'|||' %}
           {% assign partner_count = partners | size %}
           {% assign col = 12 | divided_by: partner_count | integer %}

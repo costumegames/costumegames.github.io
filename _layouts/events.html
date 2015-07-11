@@ -6,7 +6,7 @@ layout: default
 <div class="section">
   <div class="container lead">{{ content }}</div>
 </div> 
-{% assign dates = '2015-09-16,2015-09-17,2015-09-18,2015-09-19,2015-09-20' | split: ',' %}
+{% assign dates = page.days | join: ',' | split: ',' %}
 <div class="section bg-dark">
   <div class="text-center bg-{% cycle 'primary', 'success', 'warning', 'danger' %}">
     <h2 class="section-header text-uppercase">Event Guide</h2>
