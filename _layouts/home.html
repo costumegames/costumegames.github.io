@@ -41,7 +41,7 @@ layout: default
           {% assign col = 12 | divided_by: partner_count | integer %}
           <div class="row">
             {% for item in sponsors %}{% if partners contains item.slug %}
-            <div class="col-xs-{{ col }}"><a title="{{ item.title }}" href="{{ item.website }}" target="_blank" class="img-logo" style="background-image: url({{ item.image | remove_first: 'images/' | append: ' [resize:432x432]' | asset_path }})">
+            <div class="col-xs-{{ col }}"><a title="{{ item.title }}" href="{{ item.website }}" target="_blank" class="img-logo" style="background-image: url({{ item.image | remove_first: '_media/' | append: ' [resize:432x432]' | asset_path }})">
               <div class="sr-only">{{ item.title }}</div>
             </a></div>
             {% endif %}{% endfor %} 

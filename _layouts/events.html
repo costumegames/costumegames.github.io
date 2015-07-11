@@ -30,8 +30,8 @@ layout: default
       <h3 class="h1">{{ date | date: "%A"}}</h3>
       <p>{{ date | date: "%d %B"}}</p>
       <h4>{{ name }}</h4>
-        {% if partner != nil %} 
-      {{ partner.image | remove_first: '_media/' | append: ' class="img-responsive" [resize:200x50,autosize]' | image }}
+        {% if partner.image != nil %} 
+        <a class="thumbnail pull-left" href="{{ partner.link }}">{{ partner.image | remove_first: "_media/" | append: ' [resize:100x75,autosize]' | image }}</a>
         {% endif %}
     </div>
     <div class="col-sm-9">
