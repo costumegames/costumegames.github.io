@@ -9,16 +9,18 @@ layout: default
     {% unless page.image %}<h1 class="page-header" style="margin-top:90px">{{ page.title }}</h1>{% endunless %}
     {% include template/content.html %}
     {% assign files = (site.static_files | where: 'extname', '.jpg' | sort: 'modified_time') %}
+    
+    {% assign files = page.directory | files %}
     <div class="row row-padded">
-    {% for file in files reversed %}{% if file.path contains page.directory %}
+    {% for file in files reversed %}
       <div class="col-xs-6 col-sm-4 col-lg-3">
-        <a class="thumb" data-toggle="lightbox" data-gallery="gallery" href="{{ site.cdn | replace: '0x0', '1000x0' }}{{ file.path }}">
+        <a class="thumb" data-toggle="lightbox" data-gallery="gallery" href="{{ file | remove_first: '_media/' | append: ' [resize:1000x750]' | asset_path }}">
           <figure>
-            <img src="{{ site.cdn | replace: '0x0', '263x263' }}{{ file.path }}">
+            {{ file | remove_first: '_media/' | append: ' [resize:263x263,autosize]' | image }}
           </figure>
         </a>
       </div>
-    {% endif %}{% endfor %}
+    {% endfor %}
     </div>
   </div>
 </div>
