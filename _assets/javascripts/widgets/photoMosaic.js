@@ -3,6 +3,7 @@ var grid = new Grid({
   columns: $('#photoMosaic').data('columns'),
   margin: $('#photoMosaic').data('margin')
 });
+var bottom = 0;
 
 window.addEventListener('load', function() {
     for (var i = 0; i < grid.items.length; i++) {
@@ -37,7 +38,6 @@ window.addEventListener('load', function() {
     }
     $('#photoMosaic').addClass('in');
     grid.draw();
-    var bottom = 0;
     
     $('#photoMosaic>.grid-item').each(function () {
         var el = $(this);
