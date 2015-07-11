@@ -8,7 +8,7 @@ layout: default
 {% include template/content.html %}
 {% assign files = page.directory | files %}
 
-<div id="photoMosaic" class="fade rel clearfix" data-columns="6" data-margin="15" style="margin-top:-15px">
+<div id="photoMosaic" class="rel" data-columns="6" data-margin="15" style="margin-top:-15px">
   {% for file in files reversed %}
   {{ file | remove_first: '_media/' | append: ' [resize:263x263^,autosize]' | image }}
   {% endfor %}

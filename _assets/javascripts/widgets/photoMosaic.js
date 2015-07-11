@@ -3,7 +3,6 @@ var grid = new Grid({
   columns: $('#photoMosaic').data('columns'),
   margin: $('#photoMosaic').data('margin')
 });
-var bottom = 0;
 
 window.addEventListener('load', function() {
     for (var i = 0; i < grid.items.length; i++) {
@@ -36,15 +35,21 @@ window.addEventListener('load', function() {
           }
         }
     }
-    $('#photoMosaic').addClass('in');
     grid.draw();
-    
-    $('#photoMosaic>.grid-item').each(function () {
-        var el = $(this);
-        var itembottom = el.position().top + el.outerHeight();
-        if (itembottom > bottom) {
-            bottom = itembottom;
-        }
-    });
-    $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
+   // setTimeout(function(){
+        var bottom = 0;
+        var itembottom = 0;
+        $('#photoMosaic>.grid-item').each(function () {
+            var el = $(this);
+            itembottom = el.position().top + el.outerHeight();
+            console.log('itembottom:'+itembottom);
+            if (itembottom > bottom) {
+                bottom = itembottom;
+                console.log('bottom:'+bottom);
+            }
+        });
+        $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
+   //}, 10);
+    $('#photoMosaic').addClass('in');
+
 }, false);
