@@ -6,7 +6,6 @@ layout: default
 <div class="section">
   <div class="container lead">{{ content }}</div>
 </div> 
-{% assign dates = page.days | join: ',' | split: ',' %}
 <div class="section bg-dark">
   <div class="text-center bg-{% cycle 'primary', 'success', 'warning', 'danger' %}">
     <h2 class="section-header text-uppercase">Event Guide</h2>
@@ -14,7 +13,17 @@ layout: default
   {% assign events = (site.events | where: 'parent', nil | where: 'published', 1 | sort: 'start_date') %}
   <div class="table-container">
   <div class="table" style="border-spacing:15px; border-collapse: true;">
-  {% for date in dates %}
+  {% for day in page.days %}
+  {% if day[1]['day_date'] %}
+  {% assign date = day[1]['day_date'] %}
+  {% assign name = day[1]['day_name'] %}
+  {% assign partner = day[1]['day_partner'] %}
+  {% else %}
+  {% assign date = day.day_date %}
+  {% assign name = day.day_name %}
+  {% assign partner = day.day_partner %}
+  {% endif %}
+  
   <div class="row row-compact row-table">
     <div class="col-sm-3 bg-{% cycle 'primary', 'success', 'warning', 'danger' %}" style="padding: 0 30px; vertical-align: middle">
       <h3 class="h1">{{ date | date: "%A"}}</h3>
