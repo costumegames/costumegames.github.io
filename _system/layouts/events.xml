@@ -3,7 +3,7 @@
     <fields>
         <fieldset name="general">
             <field name="days" type="multiform" filter="array">
-                <field name="day_date" type="date" label="Date" filter="date" class="form-control" />
+                <field name="day_date" type="datetime" date-format="YYYY-MM-DD" label="Date" filter="date" class="form-control" />
                 <field name="day_name" type="text" label="Name" filter="string" class="form-control" />
                 <field name="day_partner" type="itemlist" label="Partner" app="sponsors" class="form-control" />
             </field>
