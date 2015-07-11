@@ -5,6 +5,9 @@
             <field name="start_date" type="datetime" label="Start Date" filter="date" class="form-control" admintable="true" />
             <field name="end_date" type="datetime" label="End Date" filter="date" class="form-control" />
             <field name="all_day" type="checkbox" label="All Day Event" filter="string" />
+            <field name="content" type="editor" label="Content" filter="raw" class="form-control" />
+        </fieldset>
+        <fieldset name="general">
         </fieldset>
         <fieldset name="options">
             <field name="price" type="text" label="Price" filter="int" class="form-control" admintable="true" />
