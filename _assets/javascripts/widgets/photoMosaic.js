@@ -36,7 +36,7 @@ window.addEventListener('load', function() {
         }
     }
     grid.draw();
-   // setTimeout(function(){
+    setTimeout(function(){
         var bottom = 0;
         var itembottom = 0;
         $('#photoMosaic>.grid-item').each(function () {
@@ -49,7 +49,7 @@ window.addEventListener('load', function() {
             }
         });
         $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
-   //}, 10);
+    }, 100);
     $('#photoMosaic').addClass('in');
 
 }, false);
