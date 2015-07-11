@@ -46,6 +46,5 @@ window.addEventListener('load', function() {
             bottom = itembottom;
         }
     });
-    var parentheight = bottom - $('#photoMosaic').position().top;
-    $('#photoMosaic').height(bottom);
+    $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
 }, false);
