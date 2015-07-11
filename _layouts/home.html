@@ -27,8 +27,12 @@ layout: default
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-center">
+          <div class="h2">{% image sponsors/moshimo_logo.png [resize:200x50] %} presents</div>
           <h1 class="text-pulse" style="margin-top:0">{{ page.title }}</h1>
           <div class="h3 media-heading">{{ page.festival_date }}</div>
+        </div>
+        <div class="col-md-offset-1 col-md-5 lead" style="margin-bottom:0">
+          {{ content }}
           <hr><h4 class="media-heading text-center h5 text-uppercase">In partnership with</h4>
           {% assign sponsors = (site.sponsors | where: 'published', 1 | sort: 'order') %}  
           <div class="row">
@@ -38,9 +42,6 @@ layout: default
             </a></div>
             {% endfor %} 
           </div>
-        </div>
-        <div class="col-md-offset-1 col-md-5 lead" style="margin-bottom:0">
-          {{ content }}
         </div>
       </div>
        
