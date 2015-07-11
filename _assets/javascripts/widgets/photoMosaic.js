@@ -49,7 +49,6 @@ window.addEventListener('load', function() {
             }
         });
         $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
-    }, 100);
+    }, 500);
     $('#photoMosaic').addClass('in');
-
 }, false);
