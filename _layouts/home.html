@@ -35,12 +35,16 @@ layout: default
           {{ content }}
           <hr><h4 class="media-heading text-center h5 text-uppercase">In partnership with</h4>
           {% assign sponsors = (site.sponsors | where: 'published', 1 | sort: 'order') %}  
+          {% capture partnerlist %}{% for partner in page.partners %}{{ partner[1] }}|||{% endfor %}{% endcapture %}
+          {% assign partners = partnerlist | split:'|||' %}
+          {% assign partner_count = partners | size %}
+          {% assign col = 12 | divided_by: partner_count | integer %}
           <div class="row">
-            {% for item in sponsors %} 
-            <div class="col-xs-3"><a title="{{ item.title }}" href="{{ item.website }}" target="_blank" class="img-logo" style="background-image: url({{ item.image | remove_first: 'images/' | append: ' [resize:432x432]' | asset_path }})">
+            {% for item in sponsors %}{% if partners contains item.slug %}
+            <div class="col-xs-{{ col }}"><a title="{{ item.title }}" href="{{ item.website }}" target="_blank" class="img-logo" style="background-image: url({{ item.image | remove_first: 'images/' | append: ' [resize:432x432]' | asset_path }})">
               <div class="sr-only">{{ item.title }}</div>
             </a></div>
-            {% endfor %} 
+            {% endif %}{% endfor %} 
           </div>
         </div>
       </div>
