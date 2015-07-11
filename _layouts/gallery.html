@@ -4,21 +4,16 @@ layout: default
 {% assign photos = (site.gallery | where: 'album', page.slug) %}
 {% if page.image %}{% include modules/banner.html %}{% endif %}
 
-<div class="section" id="content">
+<div class="section">
   <div class="container">
     {% unless page.image %}<h1 class="page-header" style="margin-top:90px">{{ page.title }}</h1>{% endunless %}
     {% include template/content.html %}
     {% assign files = page.directory | files %}
-    <div class="row row-padded">
-    {% for file in files reversed %}
-      <div class="col-xs-6 col-sm-4 col-lg-3">
-        <a class="thumb" data-toggle="lightbox" data-gallery="gallery" href="{{ file | remove_first: '_media/' | append: ' [resize:1000x750>]' | asset_path }}">
-          <figure>
-            {{ file | remove_first: '_media/' | append: ' [resize:263x263^,autosize]' | image }}
-          </figure>
-        </a>
-      </div>
-    {% endfor %}
+    
+    <div id="photoMosaic" class="fade rel clearfix" data-columns="6" data-margin="15" style="margin:-15px -15px 15px">
+      {% for file in files reversed %}
+      {{ file | remove_first: '_media/' | append: ' [resize:263x263^,autosize]' | image }}
+      {% endfor %}
     </div>
   </div>
 </div>
