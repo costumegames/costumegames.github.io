@@ -1,6 +1,6 @@
 title: 'The Costume Games'
 permalink: none
-url: 'https://thecostumegames.com/new'
+url: 'https://thecostumegames.com'
 timezone: Europe/London
 analytics:
     provider: google_analytics
@@ -66,7 +66,7 @@ comments:
     num_posts: 0
     width: 0
 baseurl: /
-cdn: //cdn.abemedia.co.uk/0x0/costumegames/new/
+cdn: //cdn.abemedia.co.uk/0x0/costumegames/
 advanced:
     xs_w: 263
     xs_h: 0
