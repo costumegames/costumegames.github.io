@@ -94,17 +94,19 @@ layout: default
 <div class="section red bg-pattern-2" id="contacts">
   <div class="container">
     <h2 class="page-header">Contacts</h2>
-    <div class="row row-padded equal">
+    <div class="row">
       {% for contact in contacts %}
       <div class="col-sm-4">
-        <div class="box">
+        <div class="panel panel-default"><div class="panel-body">
           <h4 class="media-heading">{{ contact.title }}</h4>
           <h5 class="media-heading text-danger">{{ contact.name }}</h5>
-          {% if contact.email %}<i class="fa fa-fw fa-envelope"></i> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a><br>{% endif %}
+          {% if contact.email %}<span class="text-nowrap text-ellipsis"><i class="fa fa-fw fa-envelope"></i> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></span><br>{% endif %}
           {% if contact.phone %}<i class="fa fa-fw fa-phone"></i> {{ contact.phone }}<br>{% endif %}
           {% if contact.mobile %}<i class="fa fa-fw fa-mobile"></i> {{ contact.mobile }}{% endif %}
         </div>
-      </div>
+      </div></div>
+      {% assign loopindex = forloop.index | modulo: 3 %}
+      {% if loopindex == 0 %}<div class="col-md-12 hidden-xs"></div>{% endif %}
       {% endfor %}
     </div>
       
