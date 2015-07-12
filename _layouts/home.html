@@ -8,7 +8,7 @@ layout: default
         <img src="{{ 'logo-home.png' | append: ' [resize:230x230^,autosize]' | asset_path }}" alt="{{site.title}}">
       </a>
       <div class="datebox pull-left" id="countdown" data-date="{{ page.countdown | date: "%Y-%m-%d"}}"></div>
-      <a href="{{ site.url }}/tickets.html" class="btn btn-danger btn-lg pull-left">Buy Tickets</a>  
+      <a href="{{ site.url }}/tickets.html" class="btn btn-danger btn-lg pull-left">Buy Tickets</a>
       <div class="pull-right">
         <a href="#info" class="btn btn-lg btn-{% cycle 'primary', 'info', 'success', 'warning', 'danger' %}"><i class="fa fa-chevron-down"></i> Read More</a> &nbsp;
         <a href="events.html" class="btn btn-lg btn-{% cycle 'primary', 'info', 'success', 'warning', 'danger' %}"><i class="fa fa-calendar-o"></i> View Events</a>
