@@ -100,7 +100,7 @@ layout: default
         <div class="panel panel-default"><div class="panel-body">
           <h4 class="media-heading">{{ contact.title }}</h4>
           <h5 class="media-heading text-danger">{{ contact.name }}</h5>
-          {% if contact.email %}<span class="text-nowrap text-ellipsis"><i class="fa fa-fw fa-envelope"></i> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></span><br>{% endif %}
+          {% if contact.email %}<span class="text-ellipsis"><i class="fa fa-fw fa-envelope"></i> <a href="mailto:{{ contact.email }}">{{ contact.email }}</a></span><br>{% endif %}
           {% if contact.phone %}<i class="fa fa-fw fa-phone"></i> {{ contact.phone }}<br>{% endif %}
           {% if contact.mobile %}<i class="fa fa-fw fa-mobile"></i> {{ contact.mobile }}{% endif %}
         </div>
