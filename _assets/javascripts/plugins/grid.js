@@ -156,8 +156,9 @@ var Grid = function(options) {
 		that.unit = (that.container.offsetWidth - that.margin * (that.columns + 1)) / that.columns;
 		[].slice.call(that.container.querySelectorAll('img')).forEach(_itemize);
 	}
-
-	window.addEventListener('load', _init, false);
+    
+    _init();
+	//window.addEventListener('load', _init, false);
 };
 Grid.prototype.update = function() {
 	var count = 0;

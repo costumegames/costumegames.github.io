@@ -4,7 +4,7 @@ var grid = new Grid({
   margin: $('#photoMosaic').data('margin')
 });
 
-window.addEventListener('load', function() {
+//window.addEventListener('load', function() {
     for (var i = 0; i < grid.items.length; i++) {
         if (Math.random() > 0.51) {
           var ratio = grid.items[i].orientation;
@@ -35,8 +35,10 @@ window.addEventListener('load', function() {
           }
         }
     }
-    grid.draw();
-    setTimeout(function(){
+    try {
+        grid.draw();
+    } catch (e) {}
+    //setTimeout(function(){
         var bottom = 0;
         var itembottom = 0;
         $('#photoMosaic>.grid-item').each(function () {
@@ -49,6 +51,6 @@ window.addEventListener('load', function() {
             }
         });
         $('#photoMosaic').height(bottom + $('#photoMosaic').data('margin'));
-    }, 500);
-    $('#photoMosaic').addClass('in');
-}, false);
+    //}, 500);
+    $('#photoMosaic.fade').addClass('in');
+//}, false);
