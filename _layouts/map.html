@@ -2,6 +2,6 @@
 layout: page
 ---
 <div class="row">
-  <div class="col-sm-5"><img class="img-responsive" src="{{ site.cdn | replace: '0x0', '848x0' }}{{ page.map }}"></div>
-  <div class="col-sm-7">{{ content }}</div>
+  <div class="col-sm-7">{{ page.map | remove_first: '_media/' | append: ' class="img-responsive" [resize:848x848,autosize]' | image }}</div>
+  <div class="col-sm-5">{{ content }}</div>
 </div>
