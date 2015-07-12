@@ -1,10 +1,16 @@
-  <div class="row equal">
+  <div class="row">
     {% for item in include.params.items %}
     <div class="col-sm-6 col-md-4"><a class="thumb" href="{{ site.url }}{{ item.url }}" >
     <figure>
-      <div class="thumb-wide img" style="background-image: url({{ site.cdn | replace: '0x0', '432x243' }}{{ item.image }})"></div>
+      <div class="img-4x3" style="background-image: url({{ item.image | remove_first: '_media/' | append: ' [resize:432x243]' | asset_path }})"></div>
     </figure>
     {% if item.title %}<h3>{{ item.title }} {% if item.start_date %}<!--small>{{ item.start_date | date_to_string }}</small-->{% endif %}</h3>{% endif %}
     {% if item.content %}<p>{{ item.content | strip_html | truncatewords:20 }}</p>{% endif %}
-    </a><br></div>{% endfor %}
+    </a><br></div>
+    
+    {% assign loopindex = forloop.index | modulo: 2 %}
+    {% if loopindex == 0 %}<div class="col-sm-12 visible-sm-block"></div>{% endif %}
+    {% assign loopindex = forloop.index | modulo: 3 %}
+    {% if loopindex == 0 %}<div class="col-md-12 hidden-sm"></div>{% endif %}
+    {% endfor %}
   </div>
