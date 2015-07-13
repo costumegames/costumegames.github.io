@@ -13,7 +13,7 @@ layout: default
         {% assign date = item.start_date | date: '%A, %d %B %Y' %}
         {% if date != lastdate %}
         {% assign lastdate = date %}
-        <h2>{{ date }}</h2>
+        <h2>{{ item.start_date | date: '%A' }} <small>{{ item.start_date | date: '%d %B %Y' }}</small></h2>
         {% endif %}
         <div class="panel panel-default">
           <div class="panel-body">
