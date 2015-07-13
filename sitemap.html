@@ -1,0 +1,17 @@
+---
+---
+<ul>
+{% assign pages = site.pages | where: 'published', 1 | sort: 'order' %}
+{% for item in pages %}
+<li><a href="{{item.url}}">{{item.title}}</a></li>
+{% endfor %}
+{% for collection in site.collections %}
+{% if collection[1].output == true %}
+{% assign collection_name = collection[0] %}
+</ul><h3>{{collection_name}}</h3><ul>
+{% for item in site[collection_name] %}
+<li><a href="{{item.url}}">{{item.title}}</a></li>
+{% endfor %}
+{% endif %}
+{% endfor %}
+</ul>
