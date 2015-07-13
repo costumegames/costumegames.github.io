@@ -6,48 +6,19 @@ layout: default
 <div class="section" id="tickets">
   <div class="container">
     {% include template/content.html %}
-    <br>
-    
-        <form role="form" class="form-inline" action="https://send.donlabs.com/KQ" method="post" id="contactForm">
-          <div class="bg-primary panel-body">
-            <h3>Get notified when tickets are available</h3>
-            <div class="form-group">
-              <input type="hidden" name="event" id="event" value="n/a" />
-              <label class="sr-only" for="name">Name*</label>
-              <input type="text" name="name" id="name" placeholder="Name*" class="form-control" required />
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="email">Email*</label>
-              <input type="email" name="email" id="email" placeholder="Email*" class="form-control" required />
-            </div>
-            <div class="form-group">
-              <label class="sr-only" for="phone">Mobile</label>
-              <input type="phone" name="phone" id="phone" placeholder="Mobile" class="form-control" />
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-danger">Notify me!</button>
-            </div>
-            <div>
-              <small>* required</small>
-            </div>
-          </div>
-        </form>
-    <div class="row">
       {% assign items = site.events | where: 'published', 1 | sort: 'start_date' %}
-      {% for item in items %}{% if item.price and item.ticket %}
-      <div class="col-md-12">
-        <div class="box bg-pattern-2">
-          <div class="pull-right">
-            <div class="input-group">
-              <span class="input-group-addon h3">&pound;{{ item.price }}</span>
-              <a class="btn btn-danger btn-lg" href="{{ item.ticket }}" target="_blank">Buy Tickets</a>
-            </div>
-          </div>
-          <a class="h3" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a><br>
-          <span>{{ item.start_date | date: '%A, %d %B %Y' }}</span>
+      {% for item in items %}{% if item.price > 0 %}
+      {% assign date = item.start_date | date: '%A, %d %B %Y' %}
+      {% if date != lastdate %}
+      {% assign lastdate = date %}
+      <h2>{{ date }}</h2>
+      {% endif %}
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <a class="h4" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a><br>
+          <span class="h4">&pound;{{ item.price }}</span>
         </div>
       </div>
       {% endif %}{% endfor %}
-    </div>
   </div>
 </div>
