@@ -5,20 +5,50 @@ layout: default
 
 <div class="section" id="tickets">
   <div class="container">
-    {% include template/content.html %}
-      {% assign items = site.events | where: 'published', 1 | sort: 'start_date' %}
-      {% for item in items %}{% if item.price > 0 %}
-      {% assign date = item.start_date | date: '%A, %d %B %Y' %}
-      {% if date != lastdate %}
-      {% assign lastdate = date %}
-      <h2>{{ date }}</h2>
-      {% endif %}
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div class="pull-right"><span class="h4">&pound;{{ item.price }} per person</span></div>
-          <a class="h4" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a><br>
+    <div class="row">
+      <div class="col-sm-8">
+        {% include template/content.html %}
+        {% assign items = site.events | where: 'published', 1 | sort: 'start_date' %}
+        {% for item in items %}{% if item.price > 0 %}
+        {% assign date = item.start_date | date: '%A, %d %B %Y' %}
+        {% if date != lastdate %}
+        {% assign lastdate = date %}
+        <h2>{{ date }}</h2>
+        {% endif %}
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="pull-right"><span class="h4">&pound;{{ item.price }} per person</span></div>
+            <a class="h4" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a><br>
+          </div>
         </div>
+        {% endif %}{% endfor %}
+    </div>
+    <div class="col-sm-4">
+        <form role="form" action="https://send.donlabs.com/KQ" method="post" id="contactForm">
+          <div class="bg-primary panel-body">
+            <h3>Get notified when tickets are available</h3>
+            <div class="form-group">
+              <input type="hidden" name="event" id="event" value="n/a" />
+              <label class="sr-only" for="name">Name*</label>
+              <input type="text" name="name" id="name" placeholder="Name*" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="email">Email*</label>
+              <input type="email" name="email" id="email" placeholder="Email*" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="phone">Mobile</label>
+              <input type="phone" name="phone" id="phone" placeholder="Mobile" class="form-control" />
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-danger">Notify me!</button>
+            </div>
+            <div>
+              <small>* required</small>
+            </div>
+          </div>
+        </form>
       </div>
-      {% endif %}{% endfor %}
+    </div>
   </div>
 </div>
