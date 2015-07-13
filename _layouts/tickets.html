@@ -15,8 +15,8 @@ layout: default
       {% endif %}
       <div class="panel panel-default">
         <div class="panel-body">
+          <div class="pull-right"><span class="h4">&pound;{{ item.price }} per person</span></div>
           <a class="h4" href="{{ site.url }}{{ item.url }}">{{ item.title }}</a><br>
-          <span class="h4">&pound;{{ item.price }}</span>
         </div>
       </div>
       {% endif %}{% endfor %}
