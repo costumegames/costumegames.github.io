@@ -15,7 +15,7 @@ $( ".donforms" ).submit(function( event ) {
             if (typeof Recaptcha != "undefined") {
                 Recaptcha.reload();
             }
-            $('html,body').animate({ scrollTop: $('#content').offset().top }, 1000);
+            $('html,body').animate({ scrollTop: $form.offset().top }, 1000);
         })
         .done(function(data) {
             if(data.status == 'error') {
