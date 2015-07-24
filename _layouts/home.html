@@ -17,7 +17,7 @@ layout: default
     <div id="photoMosaic" class="fade" data-stellar-ratio="1.3" data-columns="24" data-margin="4">
       {% assign files = page.mosaic_dir | files %}
       {% for file in files reversed %}
-      {{ file | remove_first: '_media/' | append: ' [resize:150x150,autosize]' | image }}
+      {{ file3 | remove_first: '_media/' | append: ' [resize:150x150,autosize]' | image }}
       {% endfor %}
     </div>
   </div>
