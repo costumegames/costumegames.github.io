@@ -89,7 +89,7 @@ assets:
         - _assets/javascripts
         - _assets/stylesheets
         - _media
-    cache: false
+    cache: true
     js_compressor: uglifier
     css_compressor: yui
 ticket_sales: 0
