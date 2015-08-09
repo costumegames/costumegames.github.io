@@ -18,10 +18,12 @@ profiles:
     provider:
         - facebook
         - twitter
+        - instagram
         - pinterest
     facebook: 'https://www.facebook.com/thecostumegames'
     twitter: 'https://twitter.com/thecostumegames'
     pinterest: 'https://pinterest.com/thecostumegames'
+    instagram: 'https://instagram.com/thecostumegames/'
 defaults:
     -
         scope:
