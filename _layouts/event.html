@@ -7,9 +7,12 @@ layout: default
     <div class="row">
       <div class="col-sm-8">
         {% include template/content.html %}
+        <script>
+        document.write('<div class="fb-like" data-href="' + location.href + '" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>');
+        </script>
       </div>
       <div class="col-sm-3 col-sm-offset-1">
-      
+
         <form role="form" action="//send.abemedia.co.uk/KQ" method="post" class="donforms">
           <div class="bg-primary panel-body">
             <h3>Get notified when tickets are available</h3>

@@ -29,18 +29,29 @@
     <meta name="twitter:domain" content="{{ site.url }}"/>
     <meta name="twitter:creator" content="@abemedia"/>
   </head>
-  <body> 
+  <body>
+
+   <!--Facebook JS SDK root-->
+   <div id="fb-root"></div>
+   <script>(function(d, s, id) {
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) return;
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=320517468084919";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));</script>
+
   <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
   <header{% if page.slug == 'index' %} class="header-home"{% endif %}>
     <button type="button" class="navbar-toggle btn-lg">
       <span class="icon-menu"></span> MENU
     </button>
   </header>
-  
+
   {% unless page.slug == 'index' %}<a class="logo" data-stellar-ratio=".65" href="{{ site.url }}" id="logo">
     <img src="{{ 'logo.png' | append: ' [resize:140x140^,autosize]' | asset_path }}" alt="{{site.title}}">
   </a>{% endunless %}
-  
+
   <ul class="nav offcanvas-nav" role="navigation">
   {% assign pages = (site.pages | where: 'published', 1 | where: 'parent', nil | sort: 'order') %}
   {% for item in pages %}
@@ -61,18 +72,18 @@
     </li>
     {% endfor %}
   </ul>
-  
+
   <div id="content">
   {{content}}
-  
+
   <footer class="footer">
     <div class="container">
-    
+
       <div class="row">
         <div class="col-sm-9">
-    
+
           <div class="row">
-          
+
             <div class="col-sm-4">
               <h4>Quick Links</h4>
               <ul class="nav">
@@ -81,7 +92,7 @@
                 <li><a href="{{ '/contact.html' | prepend: site.url }}">Contact Us</a></li>
               </ul>
             </div>
-            
+
             <div class="col-sm-4">
               <h4>Information</h4>
               <ul class="nav">
@@ -92,7 +103,7 @@
                 {% endfor %}
               </ul>
             </div>
-            
+
             <div class="col-sm-4">
               <h4>Connect</h4>
               <ul class="list-unstyled">
@@ -101,21 +112,21 @@
                 {% endfor %}
               </ul>
             </div>
-            
-            
+
+
             <div class="col-sm-12 small">
               <hr>
               <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} | <a href="{{ site.url }}/privacy-policy.html">Privacy Policy</a> | <a href="{{ site.url }}/terms-and-conditions.html">Terms & Conditions</a></p>
             </div>
-            
+
           </div>
         </div>
-        
+
         <div class="col-sm-3">
           <img style="max-width: 85%;" class="img-responsive pull-right" src="{{ 'logo.png' | asset_path }}" alt="{{site.title}}">
         </div>
       </div>
-    
+
   </footer>
   </div>
   {% javascript app %}

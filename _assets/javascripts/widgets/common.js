@@ -23,4 +23,3 @@ $('a[href*=#]:not([href=#],.carousel-control,[data-toggle])').click( function() 
         }
     }
 });
-
