@@ -5,11 +5,11 @@ layout: default
 
 <div class="section">
   <div class="container lead">{{ content }}</div>
-</div> 
+</div>
 <div class="section bg-dark">
   <div class="text-center bg-{% cycle 'primary', 'success', 'warning', 'danger' %}">
-    <h2 class="section-header text-uppercase lmnop">Event Guide</h2>
-  </div> 
+    <h2 class="section-header text-uppercase">Event Guide</h2>
+  </div>
   {% assign events = (site.events | where: 'parent', nil | where: 'published', 1 | sort: 'start_date') %}
   {% for day in page.days %}
   {% if day[1]['day_date'] %}
@@ -22,13 +22,13 @@ layout: default
   {% assign partner_slug = day.day_partner %}
   {% endif %}
   {% assign partner = site.sponsors | where: 'slug', partner_slug | first %}
-  
+
   <div class="row row-compact bg-{% cycle 'primary', 'success', 'warning', 'danger' %}" style="margin-bottom:15px;">
     <div class="col-sm-3" style="padding: 30px; vertical-align: middle">
       <h3 class="h2">{{ date | date: "%A"}}</h3>
       <p>{{ date | date: "%d %B"}}</p>
       <h4>{{ name }}</h4>
-        {% if partner.image != nil %} 
+        {% if partner.image != nil %}
         <a class="thumbnail pull-left" href="{{ partner.link }}">{{ partner.image | remove_first: "_media/" | append: ' [resize:100x75,autosize]' | image }}</a>
         {% endif %}
     </div>
@@ -39,8 +39,8 @@ layout: default
         {% if date == eventdate %}
           <a class="img-3x4" href="{{ site.url }}{{ item.url }}" {% if item.image %}style="background-image: url({{ item.image | remove_first: '_media/' | append: ' [resize:300x400^]' | asset_path }})"{% endif %}>
             <div class="slide-caption">
-              <h4 class="h3">{{ item.title }}</h4> 
-              <i class="fa fa-clock-o"></i> 
+              <h4 class="h3">{{ item.title }}</h4>
+              <i class="fa fa-clock-o"></i>
               {% if item.all_day %}All day{% else %}{{ item.start_date | date: "%H:%M"}}
               {% if item.end_date %} - {{ item.end_date | date: "%H:%M"}}{% endif %}{% endif %}
               {% if item.location %}&nbsp; <span class="text-nowrap"><i class="fa fa-map-marker"></i> {{ item.location }}</span>{% endif %}
