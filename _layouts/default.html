@@ -108,7 +108,7 @@
               <h4>Connect</h4>
               <ul class="list-unstyled">
                 {% for provider in site.profiles.provider %}
-                <li><a class="btn btn-sm btn-{{ provider }}" href="{{ site.profiles[provider] }}" target="_blank"><i class="fa fa-fw fa-{{ provider }}"></i> {{ provider | capitalize }}</a>
+                <li><a class="btn btn-sm btn-primary btn-{{ provider }}" href="{{ site.profiles[provider] }}" target="_blank"><i class="fa fa-fw fa-{{ provider }}"></i> {{ provider | capitalize }}</a>
                 {% endfor %}
               </ul>
             </div>
