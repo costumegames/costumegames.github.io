@@ -8,7 +8,7 @@ layout: default
 </div> 
 <div class="section bg-dark">
   <div class="text-center bg-{% cycle 'primary', 'success', 'warning', 'danger' %}">
-    <h2 class="section-header text-uppercase">Event Guide</h2>
+    <h2 class="section-header text-uppercase lmnop">Event Guide</h2>
   </div> 
   {% assign events = (site.events | where: 'parent', nil | where: 'published', 1 | sort: 'start_date') %}
   {% for day in page.days %}
