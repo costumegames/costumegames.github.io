@@ -94,4 +94,4 @@ assets:
     cache: true
     js_compressor: uglifier
     css_compressor: yui
-ticket_sales: 0
+ticket_sales: 1
