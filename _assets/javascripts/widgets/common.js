@@ -46,10 +46,15 @@ if(location.pathname == "/events.html") {
     });
 
     $(".col-sm-3").find("h3").each(function() {
-        $(this).parent().css("cursor", "pointer");
-
-        $(this).parent().click(function() {
-            location.replace("/schedule.html#" + $(this).find("h3").first().text().toLowerCase());
+        $(this).parent().append('<a class="btn btn-primary">Schedule</a>')
+            .find("a").click(function() {
+            location.replace("/schedule.html#" + $(this).parent().find("h3").first().text().toLowerCase());
         });
     });
+
+    $("p:contains('16 September')").append("<br />15:30 to 23:00");
+    $("p:contains('17 September')").append("<br />17:00 to 23:00");
+    $("p:contains('18 September')").append("<br />15:30 to 23:00");
+    $("p:contains('19 September')").append("<br />10:00 to 24:00");
+    $("p:contains('20 September')").append("<br />10:00 to 19:00");
 }
