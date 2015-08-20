@@ -82,7 +82,7 @@ layout: default
             {% for download in page.downloads %}
             {% if download[1] %}{% assign dl = download[1] %}
             {% else %}{% assign dl = download %}{% endif %}
-            <li><a class="h5" href="{{ dl.dl_file }}" download>{{ dl.dl_title }}</a></li>
+            <li><a class="h5" href="{{ dl.dl_file | remove_first: '_media/' | asset_url }}" download>{{ dl.dl_title }}</a></li>
             {% endfor %}
           </ul>
         </div>
